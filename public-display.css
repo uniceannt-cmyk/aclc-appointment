@@ -1,0 +1,458 @@
+* {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    overflow: hidden;
+    background: #e9e4dc url('img/aclc2.jpg') center / cover no-repeat;
+    color: #172b45;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body::before {
+    position: fixed;
+    z-index: -1;
+    content: "";
+    inset: 0;
+    background: linear-gradient(135deg, rgba(19, 34, 52, .48), rgba(69, 36, 36, .34));
+}
+
+button {
+    font: inherit;
+}
+
+.tv-header {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 12px clamp(20px, 3vw, 48px);
+    background: rgba(255, 253, 249, .96);
+    border-bottom: 1px solid #ddd4c9;
+}
+
+.tv-brand,
+.tv-header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.tv-brand {
+    min-width: 0;
+}
+
+.tv-logo {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    flex: 0 0 auto;
+}
+
+.tv-brand h1 {
+    margin: 0;
+    font-size: clamp(1rem, 1.65vw, 1.45rem);
+}
+
+.tv-brand p {
+    margin: 4px 0 0;
+    color: #66717d;
+    font-size: clamp(.72rem, .9vw, .9rem);
+}
+
+.tv-header-right {
+    flex: 0 0 auto;
+}
+
+.tv-clock {
+    display: grid;
+    gap: 3px;
+    text-align: right;
+}
+
+.tv-clock time {
+    color: #9b2335;
+    font-size: clamp(1.05rem, 1.7vw, 1.5rem);
+    font-weight: 800;
+}
+
+.tv-clock span {
+    color: #66717d;
+    font-size: .75rem;
+}
+
+.tv-button {
+    min-height: 42px;
+    padding: 9px 14px;
+    border: 1px solid #d5cabe;
+    border-radius: 8px;
+    background: #fffdf9;
+    color: #263b54;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.tv-button:hover,
+.tv-button:focus-visible {
+    border-color: #9b2335;
+    outline: none;
+}
+
+.tv-layout {
+    width: 100%;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1.85fr) minmax(290px, .95fr);
+    gap: clamp(14px, 1.8vw, 26px);
+    padding: clamp(14px, 2vw, 30px) clamp(18px, 3vw, 48px);
+}
+
+.tv-serving-card,
+.tv-queue-card {
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 253, 249, .9);
+    border-radius: 15px;
+    background: rgba(255, 253, 249, .96);
+    box-shadow: 0 12px 32px rgba(19, 34, 52, .18);
+}
+
+.tv-serving-card {
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid #9b2335;
+}
+
+.tv-card-heading {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px clamp(16px, 2vw, 28px);
+    border-bottom: 1px solid #e5ddd3;
+}
+
+.tv-card-heading h2 {
+    overflow: hidden;
+    margin: 0;
+    font-size: clamp(.95rem, 1.4vw, 1.25rem);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tv-live {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 10px;
+    border: 1px solid #e8bbc0;
+    border-radius: 999px;
+    color: #9b2335;
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+}
+
+.tv-live span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #9b2335;
+    box-shadow: 0 0 0 4px rgba(155, 35, 53, .12);
+}
+
+.tv-serving-content {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(20px, 4vw, 58px);
+    background: linear-gradient(145deg, rgba(248, 244, 237, .92), rgba(255, 253, 249, .78));
+    text-align: center;
+}
+
+.tv-eyebrow {
+    margin: 0;
+    color: #9b2335;
+    font-size: clamp(.7rem, .95vw, .9rem);
+    font-weight: 800;
+    letter-spacing: .25em;
+}
+
+.tv-ticket {
+    margin: clamp(12px, 2vh, 24px) 0;
+    color: #9b2335;
+    font-size: clamp(5rem, 12vw, 11rem);
+    font-weight: 800;
+    letter-spacing: .015em;
+    line-height: .96;
+}
+
+.tv-call-animation {
+    animation: call-highlight .8s ease-in-out 3;
+}
+
+@keyframes call-highlight {
+    50% { transform: scale(1.06); color: #c33b4d; }
+}
+
+.tv-student {
+    max-width: 100%;
+    margin: 0;
+    overflow-wrap: anywhere;
+    color: #172b45;
+    font-size: clamp(1.3rem, 2.7vw, 2.6rem);
+    font-weight: 750;
+}
+
+.tv-service {
+    max-width: 85%;
+    margin: 10px 0 0;
+    color: #66717d;
+    font-size: clamp(.9rem, 1.35vw, 1.15rem);
+    line-height: 1.45;
+}
+
+.tv-call-alert {
+    margin: 18px 0 0;
+    color: #9b2335;
+    font-size: .85rem;
+    font-weight: 800;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.tv-queue-card {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(16px, 2vw, 26px);
+}
+
+.tv-queue-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e5ddd3;
+}
+
+.tv-queue-heading h2 {
+    margin: 5px 0 0;
+    color: #172b45;
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+}
+
+.tv-count {
+    flex: 0 0 auto;
+    color: #66717d;
+    font-size: clamp(.7rem, .9vw, .82rem);
+    white-space: nowrap;
+}
+
+.tv-queue-list {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding-top: 14px;
+}
+
+.tv-queue-item {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(65px, .42fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    padding: clamp(10px, 1.2vw, 15px);
+    border: 1px solid #e7ded3;
+    border-left: 3px solid #9b2335;
+    border-radius: 9px;
+    background: #f7f3ed;
+}
+
+.tv-queue-number {
+    color: #9b2335;
+    font-size: clamp(1.05rem, 1.65vw, 1.65rem);
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.tv-queue-details {
+    min-width: 0;
+    display: grid;
+    gap: 3px;
+}
+
+.tv-queue-name {
+    overflow: hidden;
+    color: #172b45;
+    font-size: clamp(.8rem, 1.05vw, 1rem);
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tv-queue-service {
+    overflow: hidden;
+    color: #66717d;
+    font-size: clamp(.68rem, .8vw, .78rem);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tv-empty {
+    margin: auto;
+    padding: 20px;
+    color: #66717d;
+    text-align: center;
+}
+
+.tv-footer {
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 7px clamp(20px, 3vw, 48px);
+    background: rgba(255, 253, 249, .96);
+    color: #66717d;
+    font-size: .75rem;
+}
+
+.tv-start-overlay {
+    position: fixed;
+    z-index: 5;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(19, 34, 52, .55);
+}
+
+.tv-start-card {
+    width: min(440px, 100%);
+    padding: clamp(24px, 4vw, 38px);
+    border-radius: 16px;
+    background: #fffdf9;
+    box-shadow: 0 20px 70px rgba(0, 0, 0, .28);
+    text-align: center;
+}
+
+.tv-start-card h2 {
+    margin: 12px 0 8px;
+    color: #172b45;
+    font-size: 1.6rem;
+}
+
+.tv-start-card > p:not(.tv-eyebrow) {
+    margin: 0 0 20px;
+    color: #66717d;
+    line-height: 1.55;
+}
+
+.tv-start-card kbd {
+    padding: 2px 6px;
+    border: 1px solid #ddd4c9;
+    border-radius: 4px;
+    background: #f7f3ed;
+    color: #172b45;
+}
+
+.tv-start-button {
+    width: 100%;
+    border-color: #9b2335;
+    background: #9b2335;
+    color: white;
+}
+
+.tv-start-muted {
+    margin-top: 13px;
+    padding: 6px 10px;
+    border: 0;
+    background: transparent;
+    color: #66717d;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@media (max-width: 800px), (max-height: 560px) {
+    body {
+        height: auto;
+        min-height: 100%;
+        overflow: auto;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .tv-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .tv-header-right {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .tv-clock {
+        flex: 1 1 100%;
+        text-align: left;
+    }
+
+    .tv-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .tv-serving-content {
+        min-height: 330px;
+    }
+
+    .tv-queue-card {
+        min-height: 250px;
+    }
+
+    .tv-footer {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-height: 800px) and (min-width: 801px) {
+    .tv-layout {
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    .tv-queue-list {
+        gap: 6px;
+        padding-top: 10px;
+    }
+
+    .tv-queue-item {
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+
+    .tv-ticket {
+        font-size: clamp(4.5rem, 10vw, 8rem);
+    }
+}

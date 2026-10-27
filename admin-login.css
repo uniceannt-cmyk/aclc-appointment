@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f172a;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.background-collage {
+    position: fixed;
+    inset: -10px;
+    z-index: -1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    overflow: hidden;
+    filter: blur(5px) saturate(0.9) contrast(1.08) brightness(0.8);
+}
+
+.background-collage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: rgba(9, 16, 26, 0.45);
+}
+
+
+.box {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid #e2e8f0;
+    padding: 40px 32px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 16px;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.ama-logo {
+    display: block;
+    margin: 0 auto 12px auto;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.admin-header h2 {
+    color: maroon;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.admin-subtitle {
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.input-group i {
+    position: absolute;
+    left: 14px;
+    color: #94a3b8;
+    font-size: 0.95rem;
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 14px 12px 42px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.925rem;
+    color: #0f172a;
+    background-color: #f8fafc;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.input-group input::placeholder {
+    color: #94a3b8;
+}
+
+.input-group input:focus {
+    border-color: maroon;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(155, 4, 4, 0.363);
+}
+
+.input-group input:focus + i,
+.input-group input:focus ~ i {
+    color:maroon;
+}
+
+.input-group:focus-within i {
+    color: maroon;
+}
+
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    background-color:maroon;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+    background-color:rgb(85, 2, 2);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+.admin-footer-links {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #f1f5f9;
+    text-align: center;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.admin-footer-links a {
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.link-student {
+    color: #0284c7;
+}
+
+.link-student:hover {
+    color: #0369a1;
+    text-decoration: underline;
+}
+
+.link-serving {
+    color: maroon;
+}
+
+.link-serving:hover {
+    color: rgb(61, 1, 1);
+}
+
+@media (max-width: 480px) {
+    .box {
+        padding: 32px 20px;
+    }
+}
+
+@media (max-width: 420px) {
+    body {
+        min-height: 100svh;
+        padding: 16px 12px;
+    }
+
+    .box {
+        width: min(100%, 400px);
+        padding: 28px 18px;
+    }
+
+    .box h1,
+    .box h2 {
+        overflow-wrap: anywhere;
+    }
+}
